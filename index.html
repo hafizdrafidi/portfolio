@@ -720,43 +720,67 @@
         </div>
     </section>
 
-    <!-- Section: Contact -->
+<!-- Section: Contact -->
     <section id="contact" class="content-section" style="background-color: #05080d;">
         <div class="section-header">
             <span>Get In Touch</span>
             <h2>Let's Work Together</h2>
         </div>
+        
         <div class="contact-container">
-            <div>
-                <div class="contact-method-card">
-                    <div class="contact-icon">📧</div>
-                    <div class="contact-details">
-                        <h4>Email Address</h4>
-                        <p>hafizdrafidi@gmail.com</p>
-                    </div>
+            <!-- LAJUR KIRI: Mengandungi Teks Pengenalan & Kad Info Menegak -->
+            <div class="contact-left-side">
+                <div class="contact-intro">
+                    <h3>Let's <span>work together</span></h3>
+                    <p>Have a project in mind, want to collaborate, or just say hello? I'd love to hear from you. Send me a message and I'll respond as soon as possible.</p>
                 </div>
-                <div class="contact-method-card">
-                    <div class="contact-icon">📍</div>
-                    <div class="contact-details">
-                        <h4>Current Location</h4>
-                        <p>Kedah, Malaysia</p>
+
+                <div class="contact-info-list">
+                    <!-- Kad Emel -->
+                    <div class="contact-method-card">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h4>Email Address</h4>
+                            <p>hafizdrafidi@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <!-- Kad WhatsApp (Boleh Klik) -->
+                    <a href="https://wa.me/601132590753?text=Salam%20Hafizd%2C%20saya%20lihat%20portfolio%20anda%20dan%20berminat%20untuk%20berbincang." 
+                       target="_blank" 
+                       style="text-decoration: none; color: inherit;">
+                        <div class="contact-method-card">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-details">
+                                <h4>Phone Number (WhatsApp)</h4>
+                                <p style="color: var(--primary-accent);">+60 11-3259 0753</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Kad Lokasi -->
+                    <div class="contact-method-card">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Current Location</h4>
+                            <p>Kedah, Malaysia</p>
+                        </div>
+                    </div>
+
+                    <!-- Kad Universiti (Ikut Rujukan Kawan) -->
+                    <div class="contact-method-card">
+                        <div class="contact-icon">🎓</div>
+                        <div class="contact-details">
+                            <h4>University</h4>
+                            <p>UniSZA – Faculty of Informatics & Computing[cite: 1]</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- Kad Info Nombor Telefon Hafizd (Klik Terus Ke WhatsApp) -->
-                <a href="https://wa.me/601132590753?text=Salam%20Hafizd%2C%20saya%20lihat%20portfolio%20anda%20dan%20berminat%20untuk%20berbincang." 
-                   target="_blank" 
-                   style="text-decoration: none; color: inherit; display: block;">
-                    <div class="contact-method-card" style="cursor: pointer; transition: 0.3s;">
-                        <div class="contact-icon">📞</div>
-                        <div class="contact-details">
-                            <h4>Phone Number (WhatsApp)</h4>
-                            <p style="color: var(--primary-accent);">+60 11-3259 0753</p>
-                        </div>
-                    </div>
-                </a>
-                
+            
+            <!-- LAJUR KANAN: Borang Mesej -->
             <div class="form-box">
+                <h3 style="font-family: 'Syne', sans-serif; margin-bottom: 25px; font-size: 1.4rem;">Send a <span>Message</span></h3>
                 <form id="portfolioContact">
                     <div class="input-group">
                         <label>Your Name</label>
@@ -770,7 +794,7 @@
                         <label>Message</label>
                         <textarea class="form-input" rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Send Message ◆</button>
+                    <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; padding: 16px;">Send Message ◆</button>
                 </form>
             </div>
         </div>
