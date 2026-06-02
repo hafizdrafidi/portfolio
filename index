@@ -59,7 +59,7 @@
         
         /* Butang Interaktif Guna Kesan CSS Hover */
         .btn { 
-            display: inline-block; 
+            display: inline-block;
             background-color: #008080; 
             color: white; 
             padding: 12px 28px; 
