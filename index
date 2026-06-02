@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Portfolio Saya</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #1f1f1f;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #008080;
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #00cbcb; }
+        nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+        nav ul li a { color: #e0e0e0; text-decoration: none; font-weight: 500; }
+        nav ul li a:hover { color: #00cbcb; }
+        .hero { max-width: 800px; margin: 100px auto; text-align: center; padding: 20px; }
+        .hero h1 { font-size: 2.5rem; color: #ffffff; }
+        .btn { display: inline-block; background-color: #008080; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 20px; font-weight: bold; }
+        .btn:hover { background-color: #00cbcb; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">MyPortfolio</div>
+        <ul>
+            <li><a href="#">Utama</a></li>
+            <li><a href="#">Mengenai Saya</a></li>
+            <li><a href="#">Blog</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="hero">
+            <h1>Selamat Datang ke Blog Portfolio Saya</h1>
+            <p>Hai! Saya seorang pembangun perisian yang sedang membina portfolio projek.</p>
+            <a href="#" class="btn">Kenali Saya</a>
+        </section>
+    </main>
+</body>
+</html>
