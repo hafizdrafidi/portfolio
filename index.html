@@ -3,213 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Portfolio Peribadi | CSD34203</title>
+    <title>Portfolio Minimalis Peach | CSD34203</title>
     <style>
-        /* Tetapan Font & Variabel Warna (Mudah Tukar Tema) */
+        /* Palet Warna Peach Minimalis (Aesthetic Warm Modern) */
         :root {
-            --bg-color: #121212;
-            --container-bg: #1f1f1f;
-            --section-bg: #1a1a1a;
-            --text-color: #e0e0e0;
-            --text-white: #ffffff;
-            --text-muted: #a0a0a0;
-            --primary-color: #008080;
-            --accent-color: #00cbcb;
-            --border-color: #2a2a2a;
+            --bg-color: #161514;
+            --container-bg: #1e1c1b;
+            --section-bg: #1e1c1b;
+            --text-color: #bfb7b3;
+            --text-white: #f7f4f2;
+            --text-muted: #8c827d;
+            --primary-color: #ffb09c; /* Peach Terang untuk Aksyen */
+            --accent-color: #e59380;   
+            --border-color: #2d2927;
         }
 
-        /* Kelas untuk Light Mode */
+        /* Tema Cerah Minimalis (Warm Cream & Powder Peach) */
         .light-theme {
-            --bg-color: #f4f7f6;
+            --bg-color: #faf6f2;      /* Krim lembut */
             --container-bg: #ffffff;
-            --section-bg: #fdfdfd;
-            --text-color: #333333;
-            --text-white: #111111;
-            --text-muted: #666666;
-            --primary-color: #005f5f;
-            --accent-color: #008080;
-            --border-color: #dddddd;
+            --section-bg: #ffffff;
+            --text-color: #5c524e;     /* Coklat arang lembut */
+            --text-white: #261f1d;
+            --text-muted: #a69892;
+            --primary-color: #e59380; /* Muted Peach */
+            --accent-color: #c97967;
+            --border-color: #ede5e0;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.7;
+            letter-spacing: -0.01em;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
         
-        /* Bar Navigasi Premium */
+        /* Navigasi Bersih & Nipis */
         nav {
             background-color: var(--container-bg);
-            padding: 1rem 2rem;
+            padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid var(--primary-color);
+            border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s;
+            transition: background-color 0.4s, border-color 0.4s;
         }
-        .logo { font-size: 1.4rem; font-weight: bold; color: var(--accent-color); letter-spacing: 1px; }
-        .nav-right { display: flex; align-items: center; gap: 25px; }
-        nav ul { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
-        nav ul li a { color: var(--text-color); text-decoration: none; font-weight: 500; transition: color 0.3s; }
-        nav ul li a:hover { color: var(--accent-color); }
+        .logo { 
+            font-size: 1rem; 
+            font-weight: 700; 
+            color: var(--text-white); 
+            letter-spacing: 2px; 
+        }
+        .nav-right { display: flex; align-items: center; gap: 30px; }
+        nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
+        nav ul li a { 
+            color: var(--text-muted); 
+            text-decoration: none; 
+            font-size: 0.9rem;
+            font-weight: 500; 
+            transition: color 0.3s; 
+        }
+        nav ul li a:hover { color: var(--primary-color); }
 
-        /* Butang Tukar Tema Moden */
+        /* Butang Tukar Tema */
         .theme-toggle-btn {
             background: none;
-            border: 2px solid var(--accent-color);
-            color: var(--accent-color);
-            padding: 5px 12px;
-            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 6px 14px;
+            border-radius: 4px;
             cursor: pointer;
-            font-weight: bold;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s;
         }
         .theme-toggle-btn:hover {
-            background-color: var(--accent-color);
-            color: var(--container-bg);
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+            border-color: var(--primary-color);
         }
 
-        /* Container Kandungan */
-        .container { max-width: 950px; margin: 0 auto; padding: 40px 20px; }
+        /* Susunan Kandungan */
+        .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
 
-        /* Bahagian Utama (Hero Section) */
+        /* Hero Section */
         .hero { 
-            text-align: center; 
-            padding: 50px 20px; 
-            background: var(--container-bg); 
-            border-radius: 12px; 
-            margin-bottom: 40px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: background-color 0.3s;
+            text-align: left; 
+            padding: 40px 0 60px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 50px;
         }
         .profile-img {
-            width: 130px;
-            height: 130px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
-            border: 4px solid var(--primary-color);
             object-fit: cover;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 10px rgba(0, 128, 128, 0.2);
+            margin-bottom: 25px;
+            border: 1px solid var(--border-color);
         }
-        .hero h1 { font-size: 2.5rem; margin: 10px 0; color: var(--text-white); }
-        .hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+        .hero h1 { 
+            font-size: 2.8rem; 
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 10px 0 20px 0; 
+            color: var(--text-white); 
+            letter-spacing: -0.03em;
+        }
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+        .hero p { font-size: 1.15rem; color: var(--text-color); max-width: 700px; }
         
-        /* Butang Interaktif Guna Kesan CSS Hover */
+        /* Butang Jenis Blok Teks */
         .btn { 
             display: inline-block;
             background-color: var(--primary-color); 
-            color: white; 
-            padding: 12px 28px; 
+            color: var(--bg-color); 
+            padding: 10px 24px; 
             text-decoration: none; 
-            border-radius: 30px; 
-            margin-top: 25px; 
-            font-weight: bold; 
-            transition: all 0.3s ease; 
-            box-shadow: 0 4px 10px rgba(0, 128, 128, 0.2);
-            border: none;
+            border-radius: 4px; 
+            margin-top: 20px; 
+            font-size: 0.9rem;
+            font-weight: 600; 
+            transition: all 0.3s; 
+            border: 1px solid var(--primary-color);
             cursor: pointer;
         }
         .btn:hover { 
-            background-color: var(--accent-color); 
-            transform: translateY(-3px); 
-            box-shadow: 0 6px 15px rgba(0, 203, 203, 0.3);
+            background-color: transparent;
+            color: var(--primary-color);
         }
 
-        /* Bahagian Mengenai Saya */
-        .about-section { 
-            margin-bottom: 40px; 
-            padding: 30px; 
-            background: var(--section-bg); 
-            border-left: 5px solid var(--primary-color); 
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: background-color 0.3s;
+        /* Bahagian Seksyen Global */
+        section { 
+            margin-bottom: 60px; 
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
         }
-        .about-section h2 { color: var(--accent-color); margin-top: 0; font-size: 1.8rem; }
+        section h2 { 
+            color: var(--primary-color); 
+            font-size: 1.1rem; 
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px; 
+            text-transform: uppercase;
+        }
 
-        /* Bahagian Blog */
-        .blog-section h2 { color: var(--accent-color); font-size: 1.8rem; margin-bottom: 20px; }
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        /* Grid Blog Tanpa Kad Tebal */
+        .blog-grid { display: flex; flex-direction: column; gap: 35px; }
         
         .blog-card { 
-            background: var(--container-bg); 
-            border: 1px solid var(--border-color); 
-            border-radius: 10px; 
-            padding: 25px; 
-            transition: all 0.3s ease; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background: transparent; 
+            border: none; 
+            padding: 0; 
         }
-        .blog-card:hover { 
-            transform: translateY(-8px); 
-            border-color: var(--accent-color); 
-            box-shadow: 0 8px 20px rgba(0, 203, 203, 0.15);
+        .blog-card h3 { 
+            margin: 5px 0 10px 0; 
+            color: var(--text-white); 
+            font-size: 1.3rem; 
+            font-weight: 600;
+            transition: color 0.2s;
         }
-        .blog-card h3 { margin-top: 0; color: var(--text-white); font-size: 1.4rem; }
-        .blog-date { font-size: 0.85rem; color: var(--accent-color); font-weight: bold; display: block; margin-bottom: 10px; }
+        .blog-card h3:hover {
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        .blog-date { 
+            font-size: 0.8rem; 
+            color: var(--text-muted); 
+            letter-spacing: 1px;
+        }
 
-        /* Bahagian Hubungi & Borang (Contact Form) */
-        .contact-section { 
-            background: var(--section-bg); 
-            padding: 35px; 
-            border-radius: 12px; 
-            margin-top: 40px; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: background-color 0.3s;
-        }
-        .contact-section h2 { color: var(--accent-color); margin-top: 0; text-align: center; }
-        .contact-section p { text-align: center; color: var(--text-muted); }
-        
+        /* Borang Hubungi Minimalis (Garis Bawah Sahaja) */
         .contact-form {
-            max-width: 500px;
-            margin: 25px auto 0 auto;
+            max-width: 100%;
+            margin-top: 30px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            text-align: left;
+            gap: 25px;
         }
-        .form-group { display: flex; flex-direction: column; gap: 5px; }
-        .form-group label { font-size: 0.9rem; font-weight: 500; color: var(--text-white); }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group label { font-size: 0.8rem; font-weight: 600; color: var(--text-white); text-transform: uppercase; letter-spacing: 1px; }
+        
         .form-control {
-            background-color: var(--container-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-            padding: 10px 15px;
-            border-radius: 6px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-white);
+            padding: 10px 0;
+            border-radius: 0;
             font-size: 1rem;
             transition: border-color 0.3s;
         }
         .form-control:focus {
             outline: none;
-            border-color: var(--accent-color);
+            border-bottom-color: var(--primary-color);
         }
         
-        .social-links { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color); }
+        /* Pautan Sosial */
+        .social-links { text-align: left; margin-top: 40px; }
         .social-links a { 
-            color: var(--text-white); 
-            margin: 0 15px; 
+            color: var(--text-muted); 
+            margin-right: 25px; 
             text-decoration: none; 
-            font-weight: bold; 
+            font-size: 0.9rem;
+            font-weight: 500; 
             transition: color 0.3s;
         }
-        .social-links a:hover { color: var(--accent-color); }
+        .social-links a:hover { color: var(--primary-color); }
 
         /* Kaki Halaman */
-        footer { text-align: center; padding: 25px; margin-top: 50px; color: #666; font-size: 0.9rem; border-top: 1px solid var(--border-color); }
+        footer { 
+            text-align: left; 
+            padding: 0 0 40px 0; 
+            color: var(--text-muted); 
+            font-size: 0.85rem; 
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">💻 AJIBANAS.DEV</div>
+        <div class="logo">AJIBANAS</div>
         <div class="nav-right">
             <ul>
                 <li><a href="#utama">Utama</a></li>
@@ -217,98 +240,97 @@
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#hubungi">Hubungi</a></li>
             </ul>
-            <!-- Ciri Interaktif Kreatif: Suis Tema -->
-            <button class="theme-toggle-btn" id="themeToggle">🌓 MODE</button>
+            <button class="theme-toggle-btn" id="themeToggle">THEME</button>
         </div>
     </nav>
 
     <div class="container">
         
         <section id="utama" class="hero">
-            <img src="profile.png" alt="Gambar Profil Saya" class="profile-img">
-            <h1>Hai, Saya Ajibanas!</h1>
-            <p>Selamat datang ke blog portfolio peribadi saya. Di sini saya mendokumentasikan perjalanan saya menerokai dunia pengaturcaraan, reka bentuk visual, dan kawalan versi Git.</p>
-            <a href="#mengenai" class="btn">Kenali Saya Lebih Lanjut</a>
+            <img src="profile.png" alt="Ajibanas" class="profile-img">
+            <h1>Seni reka digital,<br>kod bersih & <span>estetika</span>.</h1>
+            <p>Saya mendokumentasikan jurnal pembelajaran dalam bidang pengaturcaraan, reka bentuk antara muka visual (UI/UX), dan kawalan versi repositori.</p>
+            <a href="#mengenai" class="btn">Baca Profil</a>
         </section>
 
-        <section id="mengenai" class="about-section">
-            <h2>👤 Mengenai Diri Saya</h2>
-            <p>Saya merupakan seorang pelajar bidang Teknologi Maklumat di Fakulti Informatik dan Komputer (FIK), UniSZA. Halaman portfolio ini dibangunkan khas bagi memenuhi kriteria tugasan individu untuk kod kursus <strong>CSD34203 (Special Topics in Software Development)</strong>[cite: 1].</p>
-            <p>Selain fokus kepada pembangunan aplikasi web menggunakan HTML, CSS, dan ekosistem Git, saya juga mempunyai minat yang mendalam dalam aspek pembangunan permainan video (Game Development) dan seni reka grafik/3D digital.</p>
+        <section id="mengenai">
+            <h2>Mengenai</h2>
+            <p>Saya merupakan mahasiswa Teknologi Maklumat di Fakulti Informatik dan Komputer (FIK), UniSZA. Pembangunan portfolio peribadi ini direka khas berpandukan kriteria tugasan individu bagi kod kursus <strong>CSD34203 (Special Topics in Software Development)</strong>[cite: 1].</p>
+            <p>Pengkhususan portfolio ini merangkumi penerokaan logik pengaturcaraan hadapan (frontend), integrasi pengurusan Git, serta estetika visual digital bersesuaian dengan standard industri moden.</p>
         </section>
 
-        <section id="blog" class="blog-section">
-            <h2>✍️ Artikel & Nota Pembelajaran</h2>
+        <section id="blog">
+            <h2>Artikel</h2>
             <div class="blog-grid">
                 
                 <article class="blog-card">
-                    <span class="blog-date">📅 28 MEI 2026</span>
-                    <h3>Post 1: Pengenalan Aliran Kerja Git & GitHub</h3>
-                    <p>Hari ini saya berjaya mengkonfigurasi folder projek tempatan komputer ke platform GitHub melalui terminal. Teknik kawalan versi ini sangat membantu pengurusan kod secara sistematik[cite: 1].</p>
+                    <span class="blog-date">28 MEI 2026</span>
+                    <h3>Pengenalan Aliran Kerja Git & GitHub</h3>
+                    <p>Konfigurasi folder tempatan bersama platform awan GitHub. Implementasi kawalan versi bagi penjejakan kod yang lebih tersusun[cite: 1].</p>
                 </article>
 
                 <article class="blog-card">
-                    <span class="blog-date">📅 02 JUN 2026</span>
-                    <h3>Post 2: Mengaktifkan Ciri GitHub Pages</h3>
-                    <p>Salah satu komponen penting dalam latihan ini adalah melakukan 'deployment' secara langsung menggunakan GitHub Pages, yang membolehkan projek HTML boleh diakses secara langsung di awan[cite: 1].</p>
+                    <span class="blog-date">02 JUN 2026</span>
+                    <h3>Mengaktifkan Ciri GitHub Pages</h3>
+                    <p>Melakukan pelancaran (deployment) fail statik HTML secara terus untuk capaian global berasaskan pelayan GitHub secara percuma[cite: 1].</p>
                 </article>
 
                 <article class="blog-card">
-                    <span class="blog-date">📅 02 JUN 2026</span>
-                    <h3>Post 3: Kepentingan Elemen UI/UX & Kreativiti</h3>
-                    <p>Dalam membina portfolio komersial, penyediaan fungsi interaktif seperti mod gelap (dark mode) menaikkan nilai pengalaman pengguna (UX) serta mempamerkan inisiatif inovasi dalam pembangunan[cite: 1].</p>
+                    <span class="blog-date">02 JUN 2026</span>
+                    <h3>Kepentingan Estetika UI/UX Minimalis</h3>
+                    <p>Mengurangkan gangguan visual membantu pengguna fokus kepada kandungan utama. Penyediaan fungsi interaktif ringkas menambah impak pengalaman navigasi[cite: 1].</p>
                 </article>
 
             </div>
         </section>
 
-        <!-- Keperluan Tugasan: Halaman Hubungi Termasuk Borang -->
-        <section id="hubungi" class="contact-section">
-            <h2>📩 Hubungi Saya</h2>
-            <p>Mempunyai sebarang maklum balas atau peluang kolaborasi akademik? Sila isi borang di bawah:</p>
+        <section id="hubungi" style="border-bottom: none;">
+            <h2>Hubungi</h2>
+            <p>Sila tinggalkan maklum balas atau sebarang pertanyaan akademik melalui borang di bawah:</p>
             
             <form class="contact-form" id="contactForm">
                 <div class="form-group">
-                    <label for="name">Nama Penuh:</label>
-                    <input type="text" id="name" class="form-control" placeholder="Masukkan nama anda" required>
+                    <label for="name">Nama Penuh</label>
+                    <input type="text" id="name" class="form-control" placeholder="Nama anda" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Alamat Emel:</label>
-                    <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
+                    <label for="email">Alamat Emel</label>
+                    <input type="email" id="email" class="form-control" placeholder="emel@contoh.com" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">Mesej / Maklum Balas:</label>
-                    <textarea id="message" rows="4" class="form-control" placeholder="Tulis mesej anda di sini..." required></textarea>
+                    <label for="message">Mesej</label>
+                    <textarea id="message" rows="3" class="form-control" placeholder="Tulis mesej anda..." required></textarea>
                 </div>
-                <button type="submit" class="btn" style="margin-top: 10px; width: 100%;">Hantar Mesej</button>
+                <div>
+                    <button type="submit" class="btn">Hantar</button>
+                </div>
             </form>
 
             <div class="social-links">
-                <a href="mailto:pelajar@unisza.edu.my">📧 Emel Rasmi</a> | 
-                <a href="https://github.com/AJIBANAS" target="_blank">💻 Profil GitHub</a>
+                <a href="mailto:pelajar@unisza.edu.my">Emel Rasmi</a>
+                <a href="https://github.com/AJIBANAS" target="_blank">GitHub</a>
             </div>
         </section>
 
+        <footer>
+            <p>&copy; 2026 AJIBANAS. Ditulis untuk Tugasan CSD34203 UniSZA[cite: 1].</p>
+        </footer>
+
     </div>
 
-    <footer>
-        <p>&copy; 2026 AJIBANAS - Hak Cipta Terpelihara. Dibina untuk Tugasan Individu CSD34203 UniSZA[cite: 1].</p>
-    </footer>
-
-    <!-- Skrip Interaksi JavaScript Mudah -->
     <script>
-        // Fungsi 1: Dark/Light Mode Toggle
+        // Tema gelap/cerah (Peach-based)
         const themeToggle = document.getElementById('themeToggle');
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('light-theme');
         });
 
-        // Fungsi 2: Pengendali Borang Hubungi (Frontend Alert)
+        // Pengendali borang
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const userName = document.getElementById('name').value;
-            alert(`Terima kasih ${userName}! Mesej anda berjaya dihantar (Simulasi Frontend).`);
+            alert(`Mesej daripada ${userName} berjaya diproses.`);
             contactForm.reset();
         });
     </script>
