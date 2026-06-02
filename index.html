@@ -3,49 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Minimalis Peach | CSD34203</title>
+    <title>Portfolio Premium Peach | CSD34203</title>
+    
+    <!-- Import Font Premium & Estetik dari Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
     <style>
-        /* Palet Warna Peach Minimalis (Aesthetic Warm Modern) */
+        /* Palet Warna Neo-Brutalism Peach Premium */
         :root {
-            --bg-color: #161514;
-            --container-bg: #1e1c1b;
-            --section-bg: #1e1c1b;
-            --text-color: #bfb7b3;
-            --text-white: #f7f4f2;
-            --text-muted: #8c827d;
-            --primary-color: #ffb09c; /* Peach Terang untuk Aksyen */
-            --accent-color: #e59380;   
-            --border-color: #2d2927;
+            --bg-color: #0f0e0d;
+            --card-bg: #1a1817;
+            --text-color: #e6deda;
+            --text-white: #ffffff;
+            --text-muted: #a1958e;
+            --primary-peach: #ffb5a7;   /* Peach cerah estetik */
+            --accent-terracotta: #fcd5ce; /* Soft peach pastel */
+            --shadow-color: #dd7a62;
+            --border-color: #2b2623;
         }
 
-        /* Tema Cerah Minimalis (Warm Cream & Powder Peach) */
         .light-theme {
-            --bg-color: #faf6f2;      /* Krim lembut */
-            --container-bg: #ffffff;
-            --section-bg: #ffffff;
-            --text-color: #5c524e;     /* Coklat arang lembut */
-            --text-white: #261f1d;
-            --text-muted: #a69892;
-            --primary-color: #e59380; /* Muted Peach */
-            --accent-color: #c97967;
-            --border-color: #ede5e0;
+            --bg-color: #fdf8f5;        /* Latar belakang susu peach lembut */
+            --card-bg: #ffffff;
+            --text-color: #4a3e3d;
+            --text-white: #1f1615;
+            --text-muted: #91807e;
+            --primary-peach: #fcd5ce;
+            --accent-terracotta: #ffb5a7;
+            --shadow-color: #f08080;
+            --border-color: #fae1dd;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            /* Tukar font badan utama kepada Plus Jakarta Sans */
+            font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
             padding: 0;
-            line-height: 1.7;
-            letter-spacing: -0.01em;
-            transition: background-color 0.4s ease, color 0.4s ease;
+            line-height: 1.6;
         }
-        
-        /* Navigasi Bersih & Nipis */
+
+        /* Navigasi Terapung Moden */
         nav {
-            background-color: var(--container-bg);
-            padding: 1.5rem 2rem;
+            background-color: rgba(26, 24, 23, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -53,284 +64,358 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            transition: background-color 0.4s, border-color 0.4s;
         }
+        .light-theme nav {
+            background-color: rgba(253, 248, 245, 0.8);
+        }
+
         .logo { 
-            font-size: 1rem; 
-            font-weight: 700; 
+            font-family: 'Syne', sans-serif; /* Guna font geometri */
+            font-size: 1.2rem; 
+            font-weight: 800; 
             color: var(--text-white); 
-            letter-spacing: 2px; 
+            letter-spacing: 0.5px;
         }
-        .nav-right { display: flex; align-items: center; gap: 30px; }
-        nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
+        .logo span { color: var(--shadow-color); }
+        
+        nav ul { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
         nav ul li a { 
-            color: var(--text-muted); 
+            color: var(--text-color); 
             text-decoration: none; 
             font-size: 0.9rem;
-            font-weight: 500; 
-            transition: color 0.3s; 
+            font-weight: 600;
         }
-        nav ul li a:hover { color: var(--primary-color); }
+        nav ul li a:hover { color: var(--shadow-color); }
 
-        /* Butang Tukar Tema */
         .theme-toggle-btn {
-            background: none;
-            border: 1px solid var(--border-color);
-            color: var(--primary-color);
-            padding: 6px 14px;
-            border-radius: 4px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--primary-peach);
+            border: none;
+            color: #1f1615;
+            padding: 8px 16px;
+            border-radius: 20px;
             cursor: pointer;
             font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-        }
-        .theme-toggle-btn:hover {
-            background-color: var(--primary-color);
-            color: var(--bg-color);
-            border-color: var(--primary-color);
-        }
-
-        /* Susunan Kandungan */
-        .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
-
-        /* Hero Section */
-        .hero { 
-            text-align: left; 
-            padding: 40px 0 60px 0;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 50px;
-        }
-        .profile-img {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 25px;
-            border: 1px solid var(--border-color);
-        }
-        .hero h1 { 
-            font-size: 2.8rem; 
             font-weight: 700;
-            line-height: 1.2;
-            margin: 10px 0 20px 0; 
-            color: var(--text-white); 
-            letter-spacing: -0.03em;
+            box-shadow: 2px 2px 0px var(--shadow-color);
         }
-        .hero h1 span {
-            color: var(--primary-color);
-        }
-        .hero p { font-size: 1.15rem; color: var(--text-color); max-width: 700px; }
-        
-        /* Butang Jenis Blok Teks */
-        .btn { 
-            display: inline-block;
-            background-color: var(--primary-color); 
-            color: var(--bg-color); 
-            padding: 10px 24px; 
-            text-decoration: none; 
-            border-radius: 4px; 
-            margin-top: 20px; 
-            font-size: 0.9rem;
-            font-weight: 600; 
-            transition: all 0.3s; 
-            border: 1px solid var(--primary-color);
-            cursor: pointer;
-        }
-        .btn:hover { 
-            background-color: transparent;
-            color: var(--primary-color);
+        .theme-toggle-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px var(--shadow-color);
         }
 
-        /* Bahagian Seksyen Global */
-        section { 
-            margin-bottom: 60px; 
-            padding-bottom: 40px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        section h2 { 
-            color: var(--primary-color); 
-            font-size: 1.1rem; 
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            margin-bottom: 25px; 
-            text-transform: uppercase;
-        }
+        /* Struktur Konten */
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
 
-        /* Grid Blog Tanpa Kad Tebal */
-        .blog-grid { display: flex; flex-direction: column; gap: 35px; }
-        
-        .blog-card { 
-            background: transparent; 
-            border: none; 
-            padding: 0; 
-        }
-        .blog-card h3 { 
-            margin: 5px 0 10px 0; 
-            color: var(--text-white); 
-            font-size: 1.3rem; 
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-        .blog-card h3:hover {
-            color: var(--primary-color);
-            cursor: pointer;
-        }
-        .blog-date { 
-            font-size: 0.8rem; 
-            color: var(--text-muted); 
-            letter-spacing: 1px;
-        }
-
-        /* Borang Hubungi Minimalis (Garis Bawah Sahaja) */
-        .contact-form {
-            max-width: 100%;
-            margin-top: 30px;
+        /* Hero Seksyen Kad Besar */
+        .hero-card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 24px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 6px 6px 0px var(--border-color);
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .hero-info { flex: 1; }
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 3px solid var(--primary-peach);
+            transform: rotate(-3deg);
+            box-shadow: 4px 4px 0px var(--shadow-color);
+        }
+
+        .hero-card h1 {
+            font-family: 'Syne', sans-serif; /* Font tajuk utama yang gempak */
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0 0 15px 0;
+            color: var(--text-white);
+            letter-spacing: -0.02em;
+        }
+        .hero-card h1 span {
+            background: linear-gradient(120deg, var(--primary-peach), var(--shadow-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Rekabentuk Butang Premium */
+        .btn {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--primary-peach);
+            color: #1f1615;
+            padding: 12px 28px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border: 2px solid var(--border-color);
+            box-shadow: 4px 4px 0px var(--border-color);
+            cursor: pointer;
+        }
+        .btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--shadow-color);
+        }
+
+        /* Grid Kandungan Utama */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif; /* Guna font tajuk */
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-white);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background-color: var(--shadow-color);
+            border-radius: 3px;
+        }
+
+        .custom-card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 4px 4px 0px var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+        .custom-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 6px 6px 0px var(--shadow-color);
+            border-color: var(--shadow-color);
+        }
+
+        /* Grid Artikel Kreatif */
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
-        .form-group { display: flex; flex-direction: column; gap: 8px; }
-        .form-group label { font-size: 0.8rem; font-weight: 600; color: var(--text-white); text-transform: uppercase; letter-spacing: 1px; }
+        
+        .blog-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .blog-tag {
+            align-self: flex-start;
+            background-color: var(--border-color);
+            color: var(--primary-peach);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .blog-card h3 {
+            font-family: 'Syne', sans-serif;
+            margin: 0 0 10px 0;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-white);
+        }
+
+        /* Input Borang Premium */
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-full { grid-column: span 2; }
+        
+        .form-group { display: flex; flex-direction: column; gap: 6px; }
+        .form-group label { font-size: 0.8rem; font-weight: 700; color: var(--text-muted); }
         
         .form-control {
-            background-color: transparent;
-            border: none;
-            border-bottom: 1px solid var(--border-color);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
             color: var(--text-white);
-            padding: 10px 0;
-            border-radius: 0;
-            font-size: 1rem;
-            transition: border-color 0.3s;
+            padding: 14px;
+            font-size: 0.95rem;
         }
         .form-control:focus {
             outline: none;
-            border-bottom-color: var(--primary-color);
+            border-color: var(--shadow-color);
+            box-shadow: 2px 2px 0px var(--shadow-color);
         }
-        
-        /* Pautan Sosial */
-        .social-links { text-align: left; margin-top: 40px; }
-        .social-links a { 
-            color: var(--text-muted); 
-            margin-right: 25px; 
-            text-decoration: none; 
-            font-size: 0.9rem;
-            font-weight: 500; 
-            transition: color 0.3s;
-        }
-        .social-links a:hover { color: var(--primary-color); }
 
-        /* Kaki Halaman */
-        footer { 
-            text-align: left; 
-            padding: 0 0 40px 0; 
-            color: var(--text-muted); 
-            font-size: 0.85rem; 
+        .social-area {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+        .social-box {
+            padding: 10px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background-color: var(--card-bg);
+        }
+        .social-box:hover {
+            background-color: var(--primary-peach);
+            color: #1f1615;
+            box-shadow: 3px 3px 0px var(--shadow-color);
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-card { flex-direction: column; text-align: center; padding: 30px 20px; }
+            .contact-form { grid-template-columns: 1fr; }
+            .form-full { grid-column: span 1; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">AJIBANAS</div>
-        <div class="nav-right">
-            <ul>
-                <li><a href="#utama">Utama</a></li>
-                <li><a href="#mengenai">Mengenai</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#hubungi">Hubungi</a></li>
-            </ul>
-            <button class="theme-toggle-btn" id="themeToggle">THEME</button>
-        </div>
+        <div class="logo">AJI<span>BANAS</span></div>
+        <ul>
+            <li><a href="#utama">Utama</a></li>
+            <li><a href="#mengenai">Mengenai</a></li>
+            <li><a href="#blog">Blog</a></li>
+        </ul>
+        <button class="theme-toggle-btn" id="themeToggle">TUKAR TEMA</button>
     </nav>
 
     <div class="container">
         
-        <section id="utama" class="hero">
+        <!-- Hero Section Berbentuk Kad Gergasi -->
+        <section id="utama" class="hero-card">
+            <div class="hero-info">
+                <h1>Idea Kreatif,<br>Seni & <span>Kod Digital</span></h1>
+                <p>Jurnal pembelajaran peribadi saya dalam mendalami pembangunan web moden, struktur visual UI/UX, dan pengurusan kawalan versi.</p>
+                <a href="#mengenai" class="btn">Teroka Portfolio</a>
+            </div>
             <img src="profile.png" alt="Ajibanas" class="profile-img">
-            <h1>Seni reka digital,<br>kod bersih & <span>estetika</span>.</h1>
-            <p>Saya mendokumentasikan jurnal pembelajaran dalam bidang pengaturcaraan, reka bentuk antara muka visual (UI/UX), dan kawalan versi repositori.</p>
-            <a href="#mengenai" class="btn">Baca Profil</a>
         </section>
 
-        <section id="mengenai">
-            <h2>Mengenai</h2>
-            <p>Saya merupakan mahasiswa Teknologi Maklumat di Fakulti Informatik dan Komputer (FIK), UniSZA. Pembangunan portfolio peribadi ini direka khas berpandukan kriteria tugasan individu bagi kod kursus <strong>CSD34203 (Special Topics in Software Development)</strong>[cite: 1].</p>
-            <p>Pengkhususan portfolio ini merangkumi penerokaan logik pengaturcaraan hadapan (frontend), integrasi pengurusan Git, serta estetika visual digital bersesuaian dengan standard industri moden.</p>
-        </section>
-
-        <section id="blog">
-            <h2>Artikel</h2>
-            <div class="blog-grid">
-                
-                <article class="blog-card">
-                    <span class="blog-date">28 MEI 2026</span>
-                    <h3>Pengenalan Aliran Kerja Git & GitHub</h3>
-                    <p>Konfigurasi folder tempatan bersama platform awan GitHub. Implementasi kawalan versi bagi penjejakan kod yang lebih tersusun[cite: 1].</p>
-                </article>
-
-                <article class="blog-card">
-                    <span class="blog-date">02 JUN 2026</span>
-                    <h3>Mengaktifkan Ciri GitHub Pages</h3>
-                    <p>Melakukan pelancaran (deployment) fail statik HTML secara terus untuk capaian global berasaskan pelayan GitHub secara percuma[cite: 1].</p>
-                </article>
-
-                <article class="blog-card">
-                    <span class="blog-date">02 JUN 2026</span>
-                    <h3>Kepentingan Estetika UI/UX Minimalis</h3>
-                    <p>Mengurangkan gangguan visual membantu pengguna fokus kepada kandungan utama. Penyediaan fungsi interaktif ringkas menambah impak pengalaman navigasi[cite: 1].</p>
-                </article>
-
-            </div>
-        </section>
-
-        <section id="hubungi" style="border-bottom: none;">
-            <h2>Hubungi</h2>
-            <p>Sila tinggalkan maklum balas atau sebarang pertanyaan akademik melalui borang di bawah:</p>
+        <div class="main-grid">
             
-            <form class="contact-form" id="contactForm">
-                <div class="form-group">
-                    <label for="name">Nama Penuh</label>
-                    <input type="text" id="name" class="form-control" placeholder="Nama anda" required>
+            <!-- Bahagian Mengenai -->
+            <section id="mengenai">
+                <div class="section-title">Mengenai Projek</div>
+                <div class="custom-card">
+                    <p style="margin-top: 0;">Saya merupakan mahasiswa Teknologi Maklumat di Fakulti Informatik dan Komputer (FIK), UniSZA[cite: 1]. Pembangunan laman web ini dibina khas berpandukan keperluan tugasan individu bagi kod kursus <strong>CSD34203 (Special Topics in Software Development)</strong>[cite: 1].</p>
+                    <p style="margin-bottom: 0;">Fokus utama adalah mempraktikkan integrasi perisian kawalan versi Git, hos pelayan statik, dan penerokaan kerangka kod hadapan secara interaktif[cite: 1].</p>
                 </div>
-                <div class="form-group">
-                    <label for="email">Alamat Emel</label>
-                    <input type="email" id="email" class="form-control" placeholder="emel@contoh.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Mesej</label>
-                    <textarea id="message" rows="3" class="form-control" placeholder="Tulis mesej anda..." required></textarea>
-                </div>
-                <div>
-                    <button type="submit" class="btn">Hantar</button>
-                </div>
-            </form>
+            </section>
 
-            <div class="social-links">
-                <a href="mailto:pelajar@unisza.edu.my">Emel Rasmi</a>
-                <a href="https://github.com/AJIBANAS" target="_blank">GitHub</a>
-            </div>
-        </section>
+            <!-- Bahagian Artikel / Jurnal -->
+            <section id="blog">
+                <div class="section-title">Jurnal Pembelajaran</div>
+                <div class="blog-container">
+                    
+                    <div class="custom-card blog-card">
+                        <div>
+                            <div class="blog-tag">MINGGU 1</div>
+                            <h3>Aliran Kerja Kawalan Versi Git</h3>
+                            <p>Konfigurasi asas folder lokal bersama repositori GitHub awan untuk pengurusan kod yang teratur[cite: 1].</p>
+                        </div>
+                    </div>
+
+                    <div class="custom-card blog-card">
+                        <div>
+                            <div class="blog-tag">MINGGU 2</div>
+                            <h3>Pelancaran GitHub Pages</h3>
+                            <p>Menghoskan laman portfolio HTML statik secara langsung melalui pelayan percuma daripada GitHub[cite: 1].</p>
+                        </div>
+                    </div>
+
+                    <div class="custom-card blog-card">
+                        <div>
+                            <div class="blog-tag">MINGGU 3</div>
+                            <h3>Eksperimen Gaya Visual</h3>
+                            <p>Mengubah struktur susunan elemen reka bentuk, palet warna pastel, serta interaksi responsif berasaskan CSS[cite: 1].</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Bahagian Hubungi -->
+            <section id="hubungi">
+                <div class="section-title">Hubungi Saya</div>
+                <div class="custom-card">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nama Penuh</label>
+                            <input type="text" id="name" class="form-control" placeholder="Nama anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Alamat Emel</label>
+                            <input type="email" id="email" class="form-control" placeholder="nama@email.com" required>
+                        </div>
+                        <div class="form-group form-full">
+                            <label for="message">Mesej Anda</label>
+                            <textarea id="message" rows="4" class="form-control" placeholder="Tulis mesej atau maklum balas di sini..." required></textarea>
+                        </div>
+                        <div class="form-full">
+                            <button type="submit" class="btn" style="width: 100%; justify-content: center;">Hantar Mesej</button>
+                        </div>
+                    </form>
+
+                    <div class="social-area">
+                        <a href="mailto:pelajar@unisza.edu.my" class="social-box">Emel Rasmi</a>
+                        <a href="https://github.com/AJIBANAS" target="_blank" class="social-box">GitHub Profil</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
 
         <footer>
-            <p>&copy; 2026 AJIBANAS. Ditulis untuk Tugasan CSD34203 UniSZA[cite: 1].</p>
+            <p>&copy; 2026 AJIBANAS. Ditulis untuk Tugasan Kursus CSD34203 UniSZA[cite: 1].</p>
         </footer>
 
     </div>
 
     <script>
-        // Tema gelap/cerah (Peach-based)
+        // Logik pertukaran tema
         const themeToggle = document.getElementById('themeToggle');
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('light-theme');
         });
 
-        // Pengendali borang
+        // Notifikasi borang
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const userName = document.getElementById('name').value;
-            alert(`Mesej daripada ${userName} berjaya diproses.`);
+            alert(`Terima kasih ${userName}! Mesej anda berjaya diproses.`);
             contactForm.reset();
         });
     </script>
