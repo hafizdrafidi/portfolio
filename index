@@ -5,62 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Portfolio Peribadi | CSD34203</title>
     <style>
-        /* Tetapan Font & Warna Asas Moden */
+        /* Tetapan Font & Variabel Warna (Mudah Tukar Tema) */
+        :root {
+            --bg-color: #121212;
+            --container-bg: #1f1f1f;
+            --section-bg: #1a1a1a;
+            --text-color: #e0e0e0;
+            --text-white: #ffffff;
+            --text-muted: #a0a0a0;
+            --primary-color: #008080;
+            --accent-color: #00cbcb;
+            --border-color: #2a2a2a;
+        }
+
+        /* Kelas untuk Light Mode */
+        .light-theme {
+            --bg-color: #f4f7f6;
+            --container-bg: #ffffff;
+            --section-bg: #fdfdfd;
+            --text-color: #333333;
+            --text-white: #111111;
+            --text-muted: #666666;
+            --primary-color: #005f5f;
+            --accent-color: #008080;
+            --border-color: #dddddd;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212;
-            color: #e0e0e0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
         }
         
         /* Bar Navigasi Premium */
         nav {
-            background-color: #1f1f1f;
+            background-color: var(--container-bg);
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid #008080;
+            border-bottom: 3px solid var(--primary-color);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
         }
-        .logo { font-size: 1.4rem; font-weight: bold; color: #00cbcb; letter-spacing: 1px; }
+        .logo { font-size: 1.4rem; font-weight: bold; color: var(--accent-color); letter-spacing: 1px; }
+        .nav-right { display: flex; align-items: center; gap: 25px; }
         nav ul { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
-        nav ul li a { color: #e0e0e0; text-decoration: none; font-weight: 500; transition: color 0.3s; }
-        nav ul li a:hover { color: #00cbcb; }
+        nav ul li a { color: var(--text-color); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        nav ul li a:hover { color: var(--accent-color); }
+
+        /* Butang Tukar Tema Moden */
+        .theme-toggle-btn {
+            background: none;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+        .theme-toggle-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--container-bg);
+        }
 
         /* Container Kandungan */
         .container { max-width: 950px; margin: 0 auto; padding: 40px 20px; }
 
-        /* Bahagian Utama (Hero Section) dengan Gambar Profil */
+        /* Bahagian Utama (Hero Section) */
         .hero { 
             text-align: center; 
             padding: 50px 20px; 
-            background: #1f1f1f; 
+            background: var(--container-bg); 
             border-radius: 12px; 
             margin-bottom: 40px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: background-color 0.3s;
         }
         .profile-img {
             width: 130px;
             height: 130px;
             border-radius: 50%;
-            border: 4px solid #008080;
+            border: 4px solid var(--primary-color);
             object-fit: cover;
             margin-bottom: 15px;
-            box-shadow: 0 4px 10px rgba(0, 128, 128, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 128, 128, 0.2);
         }
-        .hero h1 { font-size: 2.5rem; margin: 10px 0; color: #ffffff; }
-        .hero p { font-size: 1.1rem; color: #a0a0a0; max-width: 600px; margin: 0 auto; }
+        .hero h1 { font-size: 2.5rem; margin: 10px 0; color: var(--text-white); }
+        .hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
         
         /* Butang Interaktif Guna Kesan CSS Hover */
         .btn { 
             display: inline-block;
-            background-color: #008080; 
+            background-color: var(--primary-color); 
             color: white; 
             padding: 12px 28px; 
             text-decoration: none; 
@@ -69,78 +115,111 @@
             font-weight: bold; 
             transition: all 0.3s ease; 
             box-shadow: 0 4px 10px rgba(0, 128, 128, 0.2);
+            border: none;
+            cursor: pointer;
         }
         .btn:hover { 
-            background-color: #00cbcb; 
+            background-color: var(--accent-color); 
             transform: translateY(-3px); 
-            box-shadow: 0 6px 15px rgba(0, 203, 203, 0.4);
+            box-shadow: 0 6px 15px rgba(0, 203, 203, 0.3);
         }
 
         /* Bahagian Mengenai Saya */
         .about-section { 
             margin-bottom: 40px; 
             padding: 30px; 
-            background: #1a1a1a; 
-            border-left: 5px solid #008080; 
+            background: var(--section-bg); 
+            border-left: 5px solid var(--primary-color); 
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: background-color 0.3s;
         }
-        .about-section h2 { color: #00cbcb; margin-top: 0; font-size: 1.8rem; }
+        .about-section h2 { color: var(--accent-color); margin-top: 0; font-size: 1.8rem; }
 
-        /* Bahagian Blog (Susunan Kad Berbayang Kemas) */
-        .blog-section h2 { color: #00cbcb; font-size: 1.8rem; margin-bottom: 20px; }
+        /* Bahagian Blog */
+        .blog-section h2 { color: var(--accent-color); font-size: 1.8rem; margin-bottom: 20px; }
         .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         
         .blog-card { 
-            background: #1f1f1f; 
-            border: 1px solid #2a2a2a; 
+            background: var(--container-bg); 
+            border: 1px solid var(--border-color); 
             border-radius: 10px; 
             padding: 25px; 
             transition: all 0.3s ease; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        /* Kesan Angkat Kad Apabila Mouse Lalu (Macam Web Kawan Anda) */
         .blog-card:hover { 
             transform: translateY(-8px); 
-            border-color: #00cbcb; 
-            box-shadow: 0 8px 20px rgba(0, 203, 203, 0.2);
+            border-color: var(--accent-color); 
+            box-shadow: 0 8px 20px rgba(0, 203, 203, 0.15);
         }
-        .blog-card h3 { margin-top: 0; color: #ffffff; font-size: 1.4rem; }
-        .blog-date { font-size: 0.85rem; color: #00cbcb; font-weight: bold; display: block; margin-bottom: 10px; }
+        .blog-card h3 { margin-top: 0; color: var(--text-white); font-size: 1.4rem; }
+        .blog-date { font-size: 0.85rem; color: var(--accent-color); font-weight: bold; display: block; margin-bottom: 10px; }
 
-        /* Bahagian Hubungi */
+        /* Bahagian Hubungi & Borang (Contact Form) */
         .contact-section { 
-            background: #1a1a1a; 
+            background: var(--section-bg); 
             padding: 35px; 
             border-radius: 12px; 
             margin-top: 40px; 
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: background-color 0.3s;
         }
-        .contact-section h2 { color: #00cbcb; margin-top: 0; }
+        .contact-section h2 { color: var(--accent-color); margin-top: 0; text-align: center; }
+        .contact-section p { text-align: center; color: var(--text-muted); }
+        
+        .contact-form {
+            max-width: 500px;
+            margin: 25px auto 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left;
+        }
+        .form-group { display: flex; flex-direction: column; gap: 5px; }
+        .form-group label { font-size: 0.9rem; font-weight: 500; color: var(--text-white); }
+        .form-control {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        
+        .social-links { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color); }
         .social-links a { 
-            color: #ffffff; 
+            color: var(--text-white); 
             margin: 0 15px; 
             text-decoration: none; 
             font-weight: bold; 
             transition: color 0.3s;
         }
-        .social-links a:hover { color: #00cbcb; }
+        .social-links a:hover { color: var(--accent-color); }
 
         /* Kaki Halaman */
-        footer { text-align: center; padding: 25px; margin-top: 50px; color: #666; font-size: 0.9rem; border-top: 1px solid #222; }
+        footer { text-align: center; padding: 25px; margin-top: 50px; color: #666; font-size: 0.9rem; border-top: 1px solid var(--border-color); }
     </style>
 </head>
 <body>
 
     <nav>
         <div class="logo">💻 AJIBANAS.DEV</div>
-        <ul>
-            <li><a href="#utama">Utama</a></li>
-            <li><a href="#mengenai">Mengenai</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#hubungi">Hubungi</a></li>
-        </ul>
+        <div class="nav-right">
+            <ul>
+                <li><a href="#utama">Utama</a></li>
+                <li><a href="#mengenai">Mengenai</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#hubungi">Hubungi</a></li>
+            </ul>
+            <!-- Ciri Interaktif Kreatif: Suis Tema -->
+            <button class="theme-toggle-btn" id="themeToggle">🌓 MODE</button>
+        </div>
     </nav>
 
     <div class="container">
@@ -148,14 +227,14 @@
         <section id="utama" class="hero">
             <img src="profile.png" alt="Gambar Profil Saya" class="profile-img">
             <h1>Hai, Saya Ajibanas!</h1>
-            <p>Selamat datang ke blog portfolio saya. Projek ini memaparkan nota pembelajaran pembangunan web dan pengurusan kod menggunakan amalan ekosistem Git.</p>
+            <p>Selamat datang ke blog portfolio peribadi saya. Di sini saya mendokumentasikan perjalanan saya menerokai dunia pengaturcaraan, reka bentuk visual, dan kawalan versi Git.</p>
             <a href="#mengenai" class="btn">Kenali Saya Lebih Lanjut</a>
         </section>
 
         <section id="mengenai" class="about-section">
             <h2>👤 Mengenai Diri Saya</h2>
-            <p>Saya merupakan seorang pelajar bidang teknologi maklumat di Fakulti Informatik dan Komputer (FIK), UniSZA. Halaman portfolio peribadi ini dibangunkan khas untuk memenuhi keperluan tugasan individu bagi kursus <strong>CSD34203 (Project Portfolio)</strong>.</p>
-            <p>Melalui subjek ini, saya mempelajari konsep asas pengaturcaraan front-end serta cara menguruskan kod secara profesional menggunakan platform awan GitHub.</p>
+            <p>Saya merupakan seorang pelajar bidang Teknologi Maklumat di Fakulti Informatik dan Komputer (FIK), UniSZA. Halaman portfolio ini dibangunkan khas bagi memenuhi kriteria tugasan individu untuk kod kursus <strong>CSD34203 (Special Topics in Software Development)</strong>[cite: 1].</p>
+            <p>Selain fokus kepada pembangunan aplikasi web menggunakan HTML, CSS, dan ekosistem Git, saya juga mempunyai minat yang mendalam dalam aspek pembangunan permainan video (Game Development) dan seni reka grafik/3D digital.</p>
         </section>
 
         <section id="blog" class="blog-section">
@@ -165,21 +244,45 @@
                 <article class="blog-card">
                     <span class="blog-date">📅 28 MEI 2026</span>
                     <h3>Post 1: Pengenalan Aliran Kerja Git & GitHub</h3>
-                    <p>Hari ini saya berjaya mengkonfigurasi folder projek tempatan komputer ke platform GitHub melalui aplikasi desktop. Teknik kawalan versi ini sangat membantu pengurusan kod secara sistematik.</p>
+                    <p>Hari ini saya berjaya mengkonfigurasi folder projek tempatan komputer ke platform GitHub melalui terminal. Teknik kawalan versi ini sangat membantu pengurusan kod secara sistematik[cite: 1].</p>
                 </article>
 
                 <article class="blog-card">
-                    <span class="blog-date">📅 28 MEI 2026</span>
+                    <span class="blog-date">📅 02 JUN 2026</span>
                     <h3>Post 2: Mengaktifkan Ciri GitHub Pages</h3>
-                    <p>Salah satu komponen paling menarik dalam latihan ini adalah melakukan 'deployment' secara langsung menggunakan GitHub Pages, membolehkan aplikasi web diakses di mana-mana sahaja.</p>
+                    <p>Salah satu komponen penting dalam latihan ini adalah melakukan 'deployment' secara langsung menggunakan GitHub Pages, yang membolehkan projek HTML boleh diakses secara langsung di awan[cite: 1].</p>
+                </article>
+
+                <article class="blog-card">
+                    <span class="blog-date">📅 02 JUN 2026</span>
+                    <h3>Post 3: Kepentingan Elemen UI/UX & Kreativiti</h3>
+                    <p>Dalam membina portfolio komersial, penyediaan fungsi interaktif seperti mod gelap (dark mode) menaikkan nilai pengalaman pengguna (UX) serta mempamerkan inisiatif inovasi dalam pembangunan[cite: 1].</p>
                 </article>
 
             </div>
         </section>
 
+        <!-- Keperluan Tugasan: Halaman Hubungi Termasuk Borang -->
         <section id="hubungi" class="contact-section">
             <h2>📩 Hubungi Saya</h2>
-            <p>Mempunyai sebarang maklum balas atau peluang kolaborasi? Sila hubungi saya melalui saluran berikut:</p>
+            <p>Mempunyai sebarang maklum balas atau peluang kolaborasi akademik? Sila isi borang di bawah:</p>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nama Penuh:</label>
+                    <input type="text" id="name" class="form-control" placeholder="Masukkan nama anda" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Alamat Emel:</label>
+                    <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mesej / Maklum Balas:</label>
+                    <textarea id="message" rows="4" class="form-control" placeholder="Tulis mesej anda di sini..." required></textarea>
+                </div>
+                <button type="submit" class="btn" style="margin-top: 10px; width: 100%;">Hantar Mesej</button>
+            </form>
+
             <div class="social-links">
                 <a href="mailto:pelajar@unisza.edu.my">📧 Emel Rasmi</a> | 
                 <a href="https://github.com/AJIBANAS" target="_blank">💻 Profil GitHub</a>
@@ -189,8 +292,26 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 AJIBANAS - Hak Cipta Terpelihara. Dibina untuk Tugasan Individu CSD34203 UniSZA.</p>
+        <p>&copy; 2026 AJIBANAS - Hak Cipta Terpelihara. Dibina untuk Tugasan Individu CSD34203 UniSZA[cite: 1].</p>
     </footer>
+
+    <!-- Skrip Interaksi JavaScript Mudah -->
+    <script>
+        // Fungsi 1: Dark/Light Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+        });
+
+        // Fungsi 2: Pengendali Borang Hubungi (Frontend Alert)
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const userName = document.getElementById('name').value;
+            alert(`Terima kasih ${userName}! Mesej anda berjaya dihantar (Simulasi Frontend).`);
+            contactForm.reset();
+        });
+    </script>
 
 </body>
 </html>
