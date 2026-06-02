@@ -42,7 +42,6 @@
         }
 
         body {
-            /* Tukar font badan utama kepada Plus Jakarta Sans */
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
@@ -70,7 +69,7 @@
         }
 
         .logo { 
-            font-family: 'Syne', sans-serif; /* Guna font geometri */
+            font-family: 'Syne', sans-serif;
             font-size: 1.2rem; 
             font-weight: 800; 
             color: var(--text-white); 
@@ -132,8 +131,8 @@
         }
 
         .hero-card h1 {
-            font-family: 'Syne', sans-serif; /* Font tajuk utama yang gempak */
-            font-size: 3.2rem;
+            font-family: 'Syne', sans-serif;
+            font-size: 2.8rem;
             font-weight: 800;
             line-height: 1.1;
             margin: 0 0 15px 0;
@@ -171,11 +170,11 @@
         .main-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 30px;
+            gap: 40px;
         }
 
         .section-title {
-            font-family: 'Syne', sans-serif; /* Guna font tajuk */
+            font-family: 'Syne', sans-serif;
             font-size: 1.4rem;
             font-weight: 800;
             color: var(--text-white);
@@ -207,7 +206,35 @@
             border-color: var(--shadow-color);
         }
 
-        /* Grid Artikel Kreatif */
+        /* Rekabentuk Projek Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        .project-detail-card {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .project-detail-card h4 {
+            margin: 0 0 10px 0;
+            color: var(--primary-peach);
+            font-family: 'Syne', sans-serif;
+        }
+
+        .project-detail-card ul {
+            padding-left: 20px;
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-color);
+        }
+
+        /* Grid Artikel Kreatif (Jurnal) */
         .blog-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -267,6 +294,7 @@
             margin-top: 30px;
             display: flex;
             gap: 15px;
+            flex-wrap: wrap;
         }
         .social-box {
             padding: 10px 20px;
@@ -290,6 +318,7 @@
             border-top: 1px solid var(--border-color);
             color: var(--text-muted);
             font-size: 0.85rem;
+            text-align: center;
         }
 
         @media (max-width: 768px) {
@@ -302,64 +331,107 @@
 <body>
 
     <nav>
-        <div class="logo">AJI<span>BANAS</span></div>
+        <div class="logo">HAFIZD<span>RAFIDI</span></div>
         <ul>
             <li><a href="#utama">Utama</a></li>
             <li><a href="#mengenai">Mengenai</a></li>
-            <li><a href="#blog">Blog</a></li>
+            <li><a href="#projek">Projek</a></li>
+            <li><a href="#blog">Jurnal</a></li>
+            <li><a href="#hubungi">Hubungi</a></li>
         </ul>
         <button class="theme-toggle-btn" id="themeToggle">TUKAR TEMA</button>
     </nav>
 
     <div class="container">
         
-        <!-- Hero Section Berbentuk Kad Gergasi -->
+        <!-- Hero Section -->
         <section id="utama" class="hero-card">
             <div class="hero-info">
-                <h1>Idea Kreatif,<br>Seni & <span>Kod Digital</span></h1>
-                <p>Jurnal pembelajaran peribadi saya dalam mendalami pembangunan web moden, struktur visual UI/UX, dan pengurusan kawalan versi.</p>
-                <a href="#mengenai" class="btn">Teroka Portfolio</a>
+                <h1>Hi, Saya Hafizd.<br>Seni Visual & <span>Kod Digital</span></h1>
+                <p>Mahasiswa Informatika Media yang meminati Pembangunan Web, Reka Bentuk UI/UX, Reka Bentuk Grafik, dan Produksi 3D (Pemodelan & Animasi).</p>
+                <a href="#projek" class="btn">Lihat Hasil Kerja</a>
             </div>
-            <img src="profile.png" alt="Ajibanas" class="profile-img">
+            <!-- Menggunakan placeholder jika profile.png tiada -->
+            <img src="profile.png" alt="Hafizd Rafidi" class="profile-img" onerror="this.src='https://via.placeholder.com/140'">
         </section>
 
         <div class="main-grid">
             
             <!-- Bahagian Mengenai -->
             <section id="mengenai">
-                <div class="section-title">Mengenai Projek</div>
+                <div class="section-title">Mengenai Saya & Projek</div>
                 <div class="custom-card">
-                    <p style="margin-top: 0;">Saya merupakan mahasiswa Teknologi Maklumat di Fakulti Informatik dan Komputer (FIK), UniSZA[cite: 1]. Pembangunan laman web ini dibina khas berpandukan keperluan tugasan individu bagi kod kursus <strong>CSD34203 (Special Topics in Software Development)</strong>[cite: 1].</p>
-                    <p style="margin-bottom: 0;">Fokus utama adalah mempraktikkan integrasi perisian kawalan versi Git, hos pelayan statik, dan penerokaan kerangka kod hadapan secara interaktif[cite: 1].</p>
+                    <p style="margin-top: 0;">Saya merupakan mahasiswa **Sarjana Muda Teknologi Maklumat (Informatika Media) dengan Kepujian** di **Fakulti Informatik dan Komputer (FIK), UniSZA** (CGPA: 3.38).</p>
+                    <p>Laman web ini dibina khas bagi memenuhi keperluan tugasan individu kod kursus <strong>CSD34203 (Special Topics in Software Development)</strong>. Projek blog portfolio ini menerapkan elemen keusahawanan (MQF4b) seperti inisiatif peribadi, penyelesaian masalah, dan kreativiti digital.</p>
+                    <p style="margin-bottom: 0;">**Kemahiran Teknikal:** PHP, JavaScript, HTML, CSS, Lua, MySQL, Blender, Roblox Studio, Adobe Photoshop, dan Illustrator[cite: 1].</p>
                 </div>
             </section>
 
-            <!-- Bahagian Artikel / Jurnal -->
+            <!-- Bahagian Projek Utama (Memenuhi kriteria Tugasan) -->
+            <section id="projek">
+                <div class="section-title">Projek Multimedia & Perisian</div>
+                <div class="custom-card">
+                    <p style="margin-top: 0;">Berikut adalah senarai perisian dan hasil produksi interaktif yang telah saya bangunkan sepanjang pengajian:</p>
+                    
+                    <div class="project-grid">
+                        <!-- Projek 1 -->
+                        <div class="project-detail-card">
+                            <h4>Merong: The Forgotten Kingdom</h4>
+                            <ul>
+                                <li>**Platform:** Roblox Studio, Lua, Blender[cite: 1].</li>
+                                <li>Pembangunan sistem NPC, tugasan (quests), serta UI permainan bertemakan sejarah[cite: 1].</li>
+                                <li>Aset persekitaran 3D direka menggunakan Blender[cite: 1].</li>
+                            </ul>
+                        </div>
+
+                        <!-- Projek 2 -->
+                        <div class="project-detail-card">
+                            <h4>Hotel King Website</h4>
+                            <ul>
+                                <li>**Tech Stack:** PHP, MySQL, HTML, CSS, JavaScript[cite: 1].</li>
+                                <li>Sistem tempahan hotel berasaskan web bersama fungsi pengurusan pengguna dan admin[cite: 1].</li>
+                                <li>Reka bentuk responsif untuk pengalaman pengguna (UI/UX) yang lancar[cite: 1].</li>
+                            </ul>
+                        </div>
+
+                        <!-- Projek 3 -->
+                        <div class="project-detail-card">
+                            <h4>Cleaning The Room (3D)</h4>
+                            <ul>
+                                <li>**Aplikasi:** Blender, CapCut[cite: 1].</li>
+                                <li>Projek animasi 3D yang memfokuskan kepada pencahayaan, pergerakan kamera, dan komposisi babak[cite: 1].</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bahagian Artikel / Jurnal Pembelajaran -->
             <section id="blog">
-                <div class="section-title">Jurnal Pembelajaran</div>
+                <div class="section-title">Jurnal Tugasan (CSD34203)</div>
                 <div class="blog-container">
                     
                     <div class="custom-card blog-card">
                         <div>
                             <div class="blog-tag">MINGGU 1</div>
-                            <h3>Aliran Kerja Kawalan Versi Git</h3>
-                            <p>Konfigurasi asas folder lokal bersama repositori GitHub awan untuk pengurusan kod yang teratur[cite: 1].</p>
+                            <h3>Aliran Kerja Git & Pengurusan Repositori</h3>
+                            <p>Mengkonfigurasi folder lokal komputer bersama akaun GitHub awan bagi kawalan versi kod sumber yang sistematik[cite: 1].</p>
                         </div>
                     </div>
 
                     <div class="custom-card blog-card">
                         <div>
                             <div class="blog-tag">MINGGU 2</div>
-                            <h3>Pelancaran GitHub Pages</h3>
-                            <p>Menghoskan laman portfolio HTML statik secara langsung melalui pelayan percuma daripada GitHub[cite: 1].</p>
+                            <h3>Penerbitan Laman via GitHub Pages</h3>
+                            <p>Menghoskan fail HTML statik portfolio ini secara langsung melalui sistem pelayan penempatan percuma GitHub Pages[cite: 1].</p>
                         </div>
                     </div>
 
                     <div class="custom-card blog-card">
                         <div>
                             <div class="blog-tag">MINGGU 3</div>
-                            <h3>Eksperimen Gaya Visual</h3>
-                            <p>Mengubah struktur susunan elemen reka bentuk, palet warna pastel, serta interaksi responsif berasaskan CSS[cite: 1].</p>
+                            <h3>Integrasi Kandungan & UI Estetik</h3>
+                            <p>Mengintegrasikan maklumat resume Informatika Media ke dalam visual bertema Neo-Brutalism Peach serta kawalan tema gelap/cerah[cite: 1].</p>
                         </div>
                     </div>
 
@@ -381,7 +453,7 @@
                         </div>
                         <div class="form-group form-full">
                             <label for="message">Mesej Anda</label>
-                            <textarea id="message" rows="4" class="form-control" placeholder="Tulis mesej atau maklum balas di sini..." required></textarea>
+                            <textarea id="message" rows="4" class="form-control" placeholder="Tulis mesej berkaitan kolaborasi projek di sini..." required></textarea>
                         </div>
                         <div class="form-full">
                             <button type="submit" class="btn" style="width: 100%; justify-content: center;">Hantar Mesej</button>
@@ -389,7 +461,7 @@
                     </form>
 
                     <div class="social-area">
-                        <a href="mailto:pelajar@unisza.edu.my" class="social-box">Emel Rasmi</a>
+                        <a href="mailto:hafizdrafidi@gmail.com" class="social-box">Emel: hafizdrafidi@gmail.com</a>
                         <a href="https://github.com/AJIBANAS" target="_blank" class="social-box">GitHub Profil</a>
                     </div>
                 </div>
@@ -398,24 +470,24 @@
         </div>
 
         <footer>
-            <p>&copy; 2026 AJIBANAS. Ditulis untuk Tugasan Kursus CSD34203 UniSZA[cite: 1].</p>
+            <p>&copy; 2026 HAFIZD RAFIDI (AJIBANAS). Dibangunkan untuk Tugasan Individu CSD34203 UniSZA[cite: 1].</p>
         </footer>
 
     </div>
 
     <script>
-        // Logik pertukaran tema
+        // Logik pertukaran tema (Gelap / Cerah)
         const themeToggle = document.getElementById('themeToggle');
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('light-theme');
         });
 
-        // Notifikasi borang
+        // Notifikasi penghantaran borang
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const userName = document.getElementById('name').value;
-            alert(`Terima kasih ${userName}! Mesej anda berjaya diproses.`);
+            alert(`Terima kasih ${userName}! Mesej anda telah berjaya dihantar secara simulasi.`);
             contactForm.reset();
         });
     </script>
